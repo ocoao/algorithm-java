@@ -2,6 +2,7 @@ package me.lwan.algorithm.sort.test;
 
 import me.lwan.algorithm.sort.ArraySorter;
 import me.lwan.algorithm.sort.BubbleSorter;
+import me.lwan.algorithm.sort.InsertionSorter;
 import me.lwan.algorithm.sort.SelectionSorter;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ public class ArraySorterTest {
 
     private Integer[] generateArray() {
         Random rnd = new Random();
-        Integer[] arr = new Integer[10000 + rnd.nextInt(90000)];
+        Integer[] arr = new Integer[10000 + rnd.nextInt(9000)];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rnd.nextBoolean() ? rnd.nextInt(5000) : -rnd.nextInt(5000);
         }
@@ -24,7 +25,7 @@ public class ArraySorterTest {
 
     @Test
     public void batchTest() {
-        doTest(generateArray(), new BubbleSorter(), new SelectionSorter());
+        doTest(generateArray(), new BubbleSorter(), new SelectionSorter(), new InsertionSorter());
     }
 
     @Test
@@ -36,6 +37,11 @@ public class ArraySorterTest {
     @Test
     public void selectionTest() {
         doTest(generateArray(), new SelectionSorter());
+    }
+
+    @Test
+    public void insertionTest() {
+        doTest(generateArray(), new InsertionSorter());
     }
 
     private <T extends Comparable<T>> void doTest(T[] arr, ArraySorter... sorters) {

@@ -38,7 +38,8 @@ public class ArraySorterTest {
         ArraySorter[] sorters = {
                 new BubbleSorter(), new SelectionSorter(), new InsertionSorter(),
                 new MergeSorter(), new MergeSorter2(),
-                new QuickSorter(), new RandomQuickSorter()
+                new QuickSorter(), new RandomQuickSorter(),
+                new HeapSorter()
         };
         Table table = createTable(batchTimes, sorters);
         int row = 2;
@@ -86,6 +87,11 @@ public class ArraySorterTest {
     @Test
     public void randomQuickTest() {
         doTest(new RandomQuickSorter());
+    }
+
+    @Test
+    public void heapTest() {
+        doTest(new HeapSorter());
     }
 
     private void doTest(ArraySorter sorter) {

@@ -43,7 +43,7 @@ public class ArraySorterTest {
         Table table = createTable(batchTimes, sorters);
         int row = 2;
         for (int i = 0; i < batchTimes; i++) {
-            Integer[] array = generateArray(10000 << i);
+            Integer[] array = generateArray(100 << i);
             long[] times = doTest(array, sorters);
             if (times == null) {
                 return;

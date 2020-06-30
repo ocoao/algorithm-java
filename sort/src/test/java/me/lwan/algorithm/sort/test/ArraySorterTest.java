@@ -34,9 +34,9 @@ public class ArraySorterTest {
 
     @Test
     public void batchTest() {
-        int batchTimes = 10;
+        int batchTimes = 17;
         ArraySorter[] sorters = {
-                new BubbleSorter(), new SelectionSorter(), new InsertionSorter(),
+//                new BubbleSorter(), new SelectionSorter(), new InsertionSorter(),
                 new MergeSorter(), new MergeSorter2(),
                 new QuickSorter(), new RandomQuickSorter(),
                 new HeapSorter()
@@ -50,6 +50,7 @@ public class ArraySorterTest {
                 return;
             }
             addRow(table, row++, array.length, times);
+            System.out.println("batch ok -> " + (i + 1));
         }
         render(table, 15 * (sorters.length + 2), 4 * (batchTimes + 1));
     }

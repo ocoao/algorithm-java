@@ -1,6 +1,6 @@
 package me.lwan.algorithm.test;
 
-import me.lwan.algorithm.linkedlist.LinkedListCycle;
+import me.lwan.algorithm.linkedlist.LinkedListCycleQuestion;
 import me.lwan.algorithm.linkedlist.Node;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ public class LinkedListTest {
 
     @Test
     public void testCycle() {
-        LinkedListCycle c = new LinkedListCycle();
+        LinkedListCycleQuestion c = new LinkedListCycleQuestion();
 
         Node<Integer> head = new Node<>(1);
         System.out.println(c.findTheFirstNodeInCycle(head)); // null

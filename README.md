@@ -2,6 +2,7 @@
 | Project  | Description  |
 | ------------ | ------------ |
 | sort  | the sort algorithm  |
+| ds  | the data structure:<br/>stack/list/linked list/queue  |
 #
 
 #### sort

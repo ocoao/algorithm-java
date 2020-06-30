@@ -11,6 +11,7 @@
 
     <modules>
         <module>sort</module>
+        <module>ds</module>
     </modules>
 
     <properties>

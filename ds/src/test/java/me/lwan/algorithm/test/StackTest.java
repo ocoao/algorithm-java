@@ -1,11 +1,11 @@
-package me.lwan.algorithm.sort.test;
+package me.lwan.algorithm.test;
 
-import me.lwan.algorithm.question.MinimumStack;
+import me.lwan.algorithm.stack.MinimumStack;
 import org.junit.jupiter.api.Test;
 
 import java.util.Stack;
 
-public class QuestionTest {
+public class StackTest {
 
     private static class MinimumStack2<E extends Comparable<E>> extends Stack<E> {
         public E getMinimum() {

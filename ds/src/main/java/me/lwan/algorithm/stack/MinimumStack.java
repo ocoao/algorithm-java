@@ -1,7 +1,11 @@
-package me.lwan.algorithm.question;
+package me.lwan.algorithm.stack;
 
 import java.util.Stack;
 
+/**
+ * Implement a stack that can get the minimum value, and time complexity is O(1).
+ * @param <E>
+ */
 public class MinimumStack<E extends Comparable<E>> {
 
     protected Stack<E> data = new Stack<>();

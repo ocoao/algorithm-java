@@ -4,20 +4,27 @@ import java.util.Stack;
 
 public class MinimumStack<E extends Comparable<E>> {
 
-    private Stack<E> data = new Stack<>();
-    private Stack<E> minimum = new Stack<>();
+    protected Stack<E> data = new Stack<>();
+    protected Stack<E> minimum = new Stack<>();
 
     public void push(E e) {
         data.push(e);
-        if (minimum.isEmpty() || e.compareTo(minimum.peek()) < 0) {
-            minimum.push(e);
-        } else {
-            minimum.push(minimum.peek());
+//        if (minimum.isEmpty() || e.compareTo(minimum.peek()) < 0) {
+//            minimum.push(e);
+//        } else {
+//            minimum.push(minimum.peek());
+//        }
+        if (!minimum.isEmpty() && e.compareTo(minimum.peek()) > 0) {
+            return;
         }
+        minimum.push(e);
     }
 
     public E pop() {
-        minimum.pop();
+//        minimum.pop();
+        if (!minimum.isEmpty() && minimum.peek() == data.peek()) {
+            minimum.pop();
+        }
         return data.pop();
     }
 

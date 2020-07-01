@@ -109,6 +109,8 @@ public class LinkedListCycleQuestion {
         }
         Node<E> longer = n > 0 ? head1 : head2;
         Node<E> shorter = n <= 0 ? head1 : head2;
+
+        // n is length difference between the two linked list
         n = Math.abs(n);
         while (n-- > 0) {
             longer = longer.next;

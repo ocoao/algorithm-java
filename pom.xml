@@ -12,6 +12,7 @@
     <modules>
         <module>sort</module>
         <module>ds</module>
+        <module>question</module>
     </modules>
 
     <properties>

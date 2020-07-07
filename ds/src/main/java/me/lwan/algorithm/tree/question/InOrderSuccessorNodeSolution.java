@@ -2,6 +2,9 @@ package me.lwan.algorithm.tree.question;
 
 import me.lwan.algorithm.tree.ExtendNode;
 
+/**
+ * 后继结点(中序遍历下一个结点)
+ */
 public class InOrderSuccessorNodeSolution {
 
     public <V> ExtendNode<V> getSuccessor(ExtendNode<V> node) {

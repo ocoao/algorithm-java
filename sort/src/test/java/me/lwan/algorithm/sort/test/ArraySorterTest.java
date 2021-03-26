@@ -162,4 +162,73 @@ public class ArraySorterTest {
         System.out.println(canvas.getText());
     }
 
+    public int reversePairs(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
+        }
+        return reversePairs(nums, 0, nums.length - 1);
+    }
+
+    private int reversePairs(int[] nums, int left, int right) {
+        if (left == right) {
+            return 0;
+        }
+        int mid = (left + right) >> 1;
+        int countLeft = reversePairs(nums, left, mid);
+        int countRight = reversePairs(nums, mid + 1, right);
+
+        int count = 0;
+        int p = mid;
+        int q = right;
+        int[] tmp = new int[right - left + 1];
+        int i = tmp.length - 1;
+        while (p >= left && q > mid) {
+            if (nums[p] > nums[q]) {
+                count += q - mid;
+                tmp[i--] = nums[p--];
+            } else {
+                tmp[i--] = nums[q--];
+            }
+        }
+        while (p >= left) {
+            tmp[i--] = nums[p--];
+        }
+        while (q > mid) {
+            tmp[i--] = nums[q--];
+        }
+        for (i = 0; i < tmp.length; i++) {
+            nums[left + i] = tmp[i];
+        }
+
+        return countLeft + countRight + count;
+    }
+
+    @Test
+    public void testReversePairs() {
+        int n = reversePairs(new int[] { 7, 5, 6, 4 });
+        System.out.println(n);
+    }
+
+    public int countRangeSum(int[] nums, int lower, int upper) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                long sum = 0;
+                for (int k = i; k <= j; k++) {
+                    sum += nums[k];
+                }
+                if (sum >= lower && sum <= upper) {
+                    ans++;
+                    System.out.println(i + ", " + j + " = " + sum);
+                }
+            }
+        }
+        return ans;
+    }
+
+    @Test
+    public void countRangeSum() {
+        System.out.println(countRangeSum(new int[] { -2147483647,0,-2147483647,2147483647 }, -564, 3864));
+    }
+
 }

@@ -30,6 +30,10 @@ public abstract class BaseTest {
         return rnd.nextInt(max + 1 - min) + min;
     }
 
+    protected int nextInt(int min, int max) {
+        return nextInt(new Random(), min, max);
+    }
+
     @Test
     public void runBatch1000() {
         runBatchTest(1000);

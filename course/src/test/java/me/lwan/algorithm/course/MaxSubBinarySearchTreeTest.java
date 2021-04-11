@@ -10,8 +10,28 @@ public class MaxSubBinarySearchTreeTest extends BaseTest {
     public void runTest() {
         TreeNode head = generateRandomBST(5, 100);
         if (maxSubBSTSize1(head) != maxSubBinarySearchTree.getMaxSubBSTSize(head)) {
-            throw new IllegalStateException();
+            throw new IllegalStateException("getMaxSubBSTSize Error");
         }
+
+        if (maxSubBSTHead1(head) != maxSubBinarySearchTree.getMaxSubBST(head)) {
+//            TreeNode n1 = maxSubBSTHead1(head);
+//            TreeNode n2 = maxSubBinarySearchTree.getMaxSubBST(head);
+//            throw new IllegalStateException("getMaxSubBST Error: " + n1.val + ", " + n2.val);
+            throw new IllegalStateException("getMaxSubBST Error");
+        }
+
+    }
+
+    public static TreeNode maxSubBSTHead1(TreeNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (getBSTSize(head) != 0) {
+            return head;
+        }
+        TreeNode leftAns = maxSubBSTHead1(head.left);
+        TreeNode rightAns = maxSubBSTHead1(head.right);
+        return getBSTSize(leftAns) >= getBSTSize(rightAns) ? leftAns : rightAns;
     }
 
     public static int getBSTSize(TreeNode head) {

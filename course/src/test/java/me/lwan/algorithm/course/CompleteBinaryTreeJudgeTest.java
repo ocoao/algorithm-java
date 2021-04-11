@@ -8,7 +8,11 @@ public class CompleteBinaryTreeJudgeTest extends BaseTest {
     public void runTest() {
         TreeNode head = generateRandomBST(5, 100);
         if (completeBinaryTreeJudge.isCBT(head) != isCBT2(head)) {
-            throw new IllegalStateException();
+            throw new IllegalStateException("isCBT Error");
+        }
+
+        if (completeBinaryTreeJudge.isCBT2(head) != isCBT2(head)) {
+            throw new IllegalStateException("isCBT2 Error");
         }
     }
 

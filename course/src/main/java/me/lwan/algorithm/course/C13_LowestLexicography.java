@@ -3,6 +3,7 @@ package me.lwan.algorithm.course;
 import java.util.Arrays;
 
 /**
+ * 贪心算法<br/>
  * 字符串数组最小字典序组合
  */
 public class C13_LowestLexicography {

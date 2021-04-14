@@ -20,6 +20,7 @@ public class C14_UnionFindSet {
     public interface UnionFind<V> {
         boolean isSameSet(V a, V b);
         void union(V a, V b);
+        int size();
     }
 
     public static class UnionFind1<V> implements UnionFind<V> {
@@ -79,6 +80,11 @@ public class C14_UnionFindSet {
             sizeMapping.put(ancestorBig, sizeA + sizeB);
             sizeMapping.remove(ancestorSmall);
         }
+
+        @Override
+        public int size() {
+            return sizeMapping.size();
+        }
     }
 
     public static class UnionFind2<V> implements UnionFind<V> {
@@ -94,12 +100,14 @@ public class C14_UnionFindSet {
         }
 
         private final Map<V, Node2<V>> nodeMapping = new HashMap<>();
+        private int size;
 
         public UnionFind2(List<V> values) {
             for (V v : values) {
                 Node2<V> node = new Node2<>(v);
                 nodeMapping.put(v, node);
             }
+            this.size = values.size();
         }
 
         private Node2<V> findAncestor(V v) {
@@ -132,6 +140,12 @@ public class C14_UnionFindSet {
             ancestorSmall.parent = ancestorBig;
             ancestorBig.size += ancestorSmall.size;
             ancestorSmall.size = 0;
+            size--;
+        }
+
+        @Override
+        public int size() {
+            return size;
         }
     }
 

@@ -15,7 +15,7 @@ public class C14_MeetingSchedule {
         public int start;
         public int end;
 
-        Meeting(int start, int end) {
+        public Meeting(int start, int end) {
             this.start = start;
             this.end = end;
         }

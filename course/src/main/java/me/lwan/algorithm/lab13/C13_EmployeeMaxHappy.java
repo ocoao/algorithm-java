@@ -11,7 +11,7 @@ public class C13_EmployeeMaxHappy {
     public static class Employee {
         public int happy;
         public List<Employee> members; // 直接下属
-        Employee(int happy) {
+        public Employee(int happy) {
             this.happy = happy;
             this.members = new ArrayList<>();
         }
